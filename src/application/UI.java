@@ -1,7 +1,11 @@
 package application;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import chest.ChessPiece;
 import chest.Color;
+import chest.chessPosition;
 
 public class UI {
 
@@ -23,6 +27,19 @@ public class UI {
 	public static final String ANSI_PURPLE_BACKGROUND = "\u001B[45m";
 	public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
+	
+	
+	public static chessPosition readChessPosition(Scanner sc) {
+		try {
+			String s = sc.next();
+			char column = s.charAt(0);
+			int row = Integer.parseInt(s.substring(1));
+			return new chessPosition(column, row);
+		}catch(RuntimeException e) {
+			throw new InputMismatchException("Error reading position, values are readen at a1 to h8");
+		}
+	}
+	
 
 	public static void printBoard(ChessPiece[][] pieces) {
 		for (int i = 0; i < pieces.length; i++) {
