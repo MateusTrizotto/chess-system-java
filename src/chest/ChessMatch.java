@@ -60,6 +60,9 @@ public class ChessMatch {
 		if(!board.thereIsAPiece(position)) {
 			throw new chessException("There is no capable position");
 		}
+		if(!board.piece(position).isThereAnyPossibelMove()) {
+			throw new chessException("There is no possible mive");
+		}
 	}
 	
 	private void placeNewPiece(char column, int row, ChessPiece piece) {
