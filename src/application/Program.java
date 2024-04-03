@@ -5,7 +5,6 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-import boardgame.BoardException;
 import chest.ChessMatch;
 import chest.ChessPiece;
 import chest.chessException;
@@ -39,6 +38,13 @@ public class Program {
 	           if(capturedPiece != null) {
 	        	   captured.add(capturedPiece);
 	           }
+	           
+	           if(mat.getPromoted() != null) {
+	        	   System.out.print("Enter piece for promotion (B/N/R/Q): ");
+	        	   String type = sc.next();
+	        	   mat.replacePromotedPiece(type);
+	           }
+	        	   
 	           
 		   }catch(chessException e) {
 			   System.out.println(e.getMessage());

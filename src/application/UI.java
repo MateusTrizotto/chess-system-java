@@ -111,11 +111,11 @@ public class UI {
 		System.out.println("Captured pieces: ");
 		System.out.print("White: ");
 		System.out.print(ANSI_WHITE);
-		white.forEach(System.out::println);
+		white.forEach(System.out::print);
 		System.out.print(ANSI_RESET);
 		System.out.print("Black: ");
 		System.out.print(ANSI_YELLOW);
-		black.forEach(System.out::println);
+		black.forEach(System.out::print);
 		System.out.print(ANSI_RESET);
 	}
 }
